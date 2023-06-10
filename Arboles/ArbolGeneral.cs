@@ -19,6 +19,11 @@ namespace Arboles
 
         public Nodo InsertarNodo(string dato, Nodo nodoPadre)
         {
+            if (string.IsNullOrWhiteSpace(dato))
+            {
+                throw new Exception("No se a especificado dato");
+            }
+
             if (nodoPadre == null)
             {
                 throw new Exception("No se a especificado padre");
@@ -61,7 +66,7 @@ namespace Arboles
             {
                 string dato = nodoInicial.Dato;
                 int cantidadGuiones = dato.Length + posicion;
-                datos += $"{nodoInicial.Dato.PadLeft(cantidadGuiones,'-')}\n";
+                datos += $"{dato.PadLeft(cantidadGuiones,'-')}\n";
 
                 if(nodoInicial.Hijo != null)
                 {
@@ -75,6 +80,40 @@ namespace Arboles
                     Recorrer(nodoInicial.Hermano , ref posicion, ref datos);
                 }
             }
+        }
+
+        public Nodo Buscar(string dato,Nodo nodoBusqueda = null)
+        {
+            if(nodoBusqueda == null)
+            {
+                nodoBusqueda = raiz;
+            }
+
+            if (nodoBusqueda.Dato.ToUpper() == dato.ToUpper())
+            {
+                return nodoBusqueda;
+            }
+
+            if(nodoBusqueda.Hijo != null)
+            {
+                Nodo nodoEncontrado = Buscar(dato,nodoBusqueda.Hijo);
+
+                if(nodoEncontrado != null)
+                {
+                    return nodoEncontrado;
+                }
+            }
+
+            if(nodoBusqueda.Hermano != null)
+            {
+                Nodo nodoEncontrado = Buscar(dato, nodoBusqueda.Hermano);
+
+                if (nodoEncontrado != null)
+                {
+                    return nodoEncontrado;
+                }
+            }
+            return null;
         }
     }
 }
