@@ -24,7 +24,19 @@ namespace Arboles
             Nodo nodoH = arbolGeneral.InsertarNodo("H", nodoC);
             Nodo nodoL = arbolGeneral.InsertarNodo("L", nodoH);
 
-            Console.WriteLine(arbolGeneral.ObtenerArbol());
+
+            string arbol = arbolGeneral.ObtenerArbol();
+            string[] renglones = arbol.Split('\n');
+            foreach (string renglon in renglones)
+            {
+                int cuentaGuiones = renglon.Count(c => c.ToString()=="-")+2;
+                Console.ForegroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor),cuentaGuiones.ToString());
+                Console.WriteLine(renglon);
+                Console.ResetColor();
+            }
+            
+
+
             Console.ReadLine();
         }
     }
