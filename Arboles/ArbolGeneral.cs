@@ -40,5 +40,41 @@ namespace Arboles
                 return nodoActual.Hermano;
             }
         }
+
+        public string ObtenerArbol(Nodo nodoInicial = null)
+        {
+            if (nodoInicial == null)
+            {
+                nodoInicial = raiz;
+            }
+
+            int posicion = 0;
+            string datos = string.Empty;
+
+            Recorrer(nodoInicial, ref posicion, ref datos);
+            return datos;
+        }
+
+        private void Recorrer(Nodo nodoInicial, ref int posicion, ref string datos)
+        {
+            if(nodoInicial != null)
+            {
+                string dato = nodoInicial.Dato;
+                int cantidadGuiones = dato.Length + posicion;
+                datos += $"{nodoInicial.Dato.PadLeft(cantidadGuiones,'-')}\n";
+
+                if(nodoInicial.Hijo != null)
+                {
+                    posicion++;
+                    Recorrer(nodoInicial.Hijo , ref posicion, ref datos);
+                    posicion--;
+                }
+
+                if(nodoInicial.Hermano != null && posicion != 0)
+                {
+                    Recorrer(nodoInicial.Hermano , ref posicion, ref datos);
+                }
+            }
+        }
     }
 }
