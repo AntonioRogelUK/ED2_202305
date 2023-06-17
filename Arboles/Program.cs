@@ -36,6 +36,23 @@ namespace Arboles
             }
             
 
+            ArbolBinarioDeBusqueda arbolBinario = new ArbolBinarioDeBusqueda(50);
+            arbolBinario.Insertar(20);
+            arbolBinario.Insertar(70);
+            arbolBinario.Insertar(18);
+            arbolBinario.Insertar(19);
+            arbolBinario.Insertar(17);
+            arbolBinario.Insertar(140);
+            arbolBinario.Insertar(30);
+
+            string arbolBin = arbolBinario.ObtenerArbol();
+            foreach (string renglon in arbolBin.Split('\n'))
+            {
+                int cuentaGuiones = renglon.Count(c => c.ToString() == "-") + 2;
+                Console.ForegroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), cuentaGuiones.ToString());
+                Console.WriteLine(renglon);
+                Console.ResetColor();
+            }
 
             Console.ReadLine();
         }

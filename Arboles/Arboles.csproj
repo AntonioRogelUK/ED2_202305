@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArbolBinarioDeBusqueda.cs" />
     <Compile Include="ArbolGeneral.cs" />
     <Compile Include="Nodo.cs" />
+    <Compile Include="NodoArbolBinario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
