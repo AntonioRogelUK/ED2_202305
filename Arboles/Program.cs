@@ -10,6 +10,11 @@ namespace Arboles
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("-------Arbol General-------");
+            Console.WriteLine("---------------------------");
+
             ArbolGeneral arbolGeneral = new ArbolGeneral("A");
 
             Nodo nodoB = arbolGeneral.InsertarNodo("B",arbolGeneral.Raiz);
@@ -34,7 +39,32 @@ namespace Arboles
                 Console.WriteLine(renglon);
                 Console.ResetColor();
             }
-            
+
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("-------Arbol Binario-------");
+            Console.WriteLine("---------------------------");
+
+            ArbolBinario arbolBinario = new ArbolBinario(20);
+
+            arbolBinario.InsertarBi(10, arbolBinario.Raiz);
+            arbolBinario.InsertarBi(5, arbolBinario.Raiz);
+            arbolBinario.InsertarBi(50, arbolBinario.Raiz);
+            arbolBinario.InsertarBi(30, arbolBinario.Raiz);
+            arbolBinario.InsertarBi(70, arbolBinario.Raiz);
+            arbolBinario.InsertarBi(12, arbolBinario.Raiz);
+            arbolBinario.InsertarBi(64, arbolBinario.Raiz);
+            arbolBinario.InsertarBi(93, arbolBinario.Raiz);
+            arbolBinario.InsertarBi(23, arbolBinario.Raiz);
+
+            string arbolBi = arbolBinario.ObtenerArbolBi();
+            string[] renglonesB = arbolBi.Split('\n');
+            foreach (string renglon in renglonesB)
+            {
+                int cuentaGuiones = renglon.Count(c => c.ToString() == "-") + 2;
+                Console.ForegroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), cuentaGuiones.ToString());
+                Console.WriteLine(renglon);
+                Console.ResetColor();
+            }
 
 
             Console.ReadLine();
