@@ -21,12 +21,12 @@ namespace Arboles
         {
             if (string.IsNullOrWhiteSpace(dato))
             {
-                throw new Exception("No se a especificado dato");
+                throw new Exception("No se ha especificado dato");
             }
 
             if (nodoPadre == null)
             {
-                throw new Exception("No se a especificado padre");
+                throw new Exception("No se ha especificado padre");
             }
 
             if(nodoPadre.Hijo == null)
@@ -37,7 +37,7 @@ namespace Arboles
             else
             {
                 Nodo nodoActual = nodoPadre.Hijo;
-                while(nodoActual.Hermano != null)
+                while (nodoActual.Hermano != null)
                 {
                     nodoActual = nodoActual.Hermano;
                 }
