@@ -18,11 +18,10 @@ namespace ArbolBinBusq
 
         public Nodo InsertarNodo(int dato, Nodo nodoPadre)
         {
-            if (dato == 0)
+            if (dato == nodoPadre.Dato)
             {
-                throw new Exception("Ingresa un dato diferente de cero");
+                throw new Exception("Ingresa un dato diferente");
             }
-
             if (nodoPadre == null)
             {
                 throw new Exception("No se ha especificado padre");
@@ -31,7 +30,7 @@ namespace ArbolBinBusq
             {
                 throw new Exception("El padre ya tiene un hijo asignado");
             }
-            if (dato < nodoPadre.Dato && nodoPadre.Izquierda == null)
+            if (dato < nodoPadre.Dato)
             {
                 nodoPadre.Izquierda = new Nodo(dato);
                 return nodoPadre.Izquierda;
@@ -46,11 +45,7 @@ namespace ArbolBinBusq
 
         public int ObtenerArbol(Nodo nodoInicial = null)
         {
-            if (nodoInicial == null)
-            {
-                nodoInicial = raiz;
-            }
-
+            nodoInicial = raiz;
             RecorrerPreorden(nodoInicial);
             return nodoInicial.Dato;
         }
@@ -65,6 +60,7 @@ namespace ArbolBinBusq
                 RecorrerPreorden(nodoInicial.Derecha);
              
             }
+
         }
 
         public Nodo Buscar(int dato, Nodo nodoBusqueda = null)

@@ -18,7 +18,7 @@ namespace ArbolBinBusq
             Nodo nodo3 = arbolBinario.InsertarNodo(30, nodo1);
             Nodo nodo4 = arbolBinario.InsertarNodo(25, nodo3);
             Nodo nodo5 = arbolBinario.InsertarNodo(100, nodo2);
-
+            Nodo nodo6 = arbolBinario.InsertarNodo(0, nodo4);
             arbolBinario.ObtenerArbol();
 
 

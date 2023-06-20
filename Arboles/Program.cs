@@ -24,6 +24,7 @@ namespace Arboles
             Nodo nodoH = arbolGeneral.InsertarNodo("H", nodoC);
             Nodo nodoL = arbolGeneral.InsertarNodo("L", nodoH);
             Nodo nodoM = arbolGeneral.InsertarNodo("M", nodoB);
+            arbolGeneral.Buscar("G");
 
             string arbol = arbolGeneral.ObtenerArbol();
             string[] renglones = arbol.Split('\n');
