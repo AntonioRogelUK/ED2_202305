@@ -14,13 +14,13 @@ namespace Arboles {
             raiz = new NodoBinario(dato);
         }
 
-        public Nodo InsertarNodo(int dato) {
-            if (int == null) {
+        public NodoBinario InsertarNodo(int dato) {
+            if (dato == null) {
                 throw new Exception("No se a especificado dato");
             }
 
             NodoBinario nodoActual = Raiz;
-            NodoBinario nodoAnterior;
+            NodoBinario nodoAnterior = Raiz;
 
             while (nodoActual != null) {
                 if (dato > nodoActual.Dato) {
@@ -30,7 +30,7 @@ namespace Arboles {
                 {
                     nodoAnterior = nodoActual;
                     nodoActual = nodoActual.HijoIzquierdo;
-                } else if (dato = nodoActual.Dato)
+                } else if (dato == nodoActual.Dato)
                 {
                     throw new Exception("El dato ingresado ya se encuentra en el árbol");
                 }
@@ -46,9 +46,11 @@ namespace Arboles {
                 nodoAnterior.HijoIzquierdo = new NodoBinario(dato);
                 return nodoAnterior.HijoIzquierdo;
             }
+
+            throw new Exception("No se encontró un lugar donde insertar el nodo.");
         }
 
-        public string ObtenerArbol(Nodo nodoInicial = null) {
+        public string ObtenerArbol(NodoBinario nodoInicial = null) {
             if (nodoInicial == null) {
                 nodoInicial = raiz;
             }
@@ -64,20 +66,20 @@ namespace Arboles {
         {
             if (nodoInicial != null)
             {
-                string dato = nodoInicial.Dato.toString();
+                string dato = nodoInicial.Dato.ToString();
                 int cantidadGuiones = dato.Length + posicion;
                 datos += $"{dato.PadLeft(cantidadGuiones, '-')}\n";
 
-                if (nodoInicial.Hijo != null)
+                if (nodoInicial.HijoIzquierdo != null)
                 {
                     posicion++;
-                    Recorrer(nodoInicial.Hijo, ref posicion, ref datos);
+                    RecorrerArbol(nodoInicial.HijoIzquierdo, ref posicion, ref datos);
                     posicion--;
                 }
 
-                if (nodoInicial.Hermano != null && posicion != 0)
+                if (nodoInicial.HijoDerecho != null && posicion != 0)
                 {
-                    Recorrer(nodoInicial.Hermano, ref posicion, ref datos);
+                    RecorrerArbol(nodoInicial.HijoDerecho, ref posicion, ref datos);
                 }
             }
         }
