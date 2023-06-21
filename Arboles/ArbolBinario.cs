@@ -84,25 +84,25 @@ namespace Arboles {
             }
         }
 
-        public Nodo Buscar(string dato, Nodo nodoBusqueda = null) {
+        public NodoBinario Buscar(string dato, NodoBinario nodoBusqueda = null) {
             if (nodoBusqueda == null) {
                 nodoBusqueda = raiz;
             }
 
-            if (nodoBusqueda.Dato.ToUpper() == dato.ToUpper()) {
+            if (nodoBusqueda.Dato.ToString().ToUpper() == dato.ToUpper()) {
                 return nodoBusqueda;
             }
 
-            if (nodoBusqueda.Hijo != null) {
-                Nodo nodoEncontrado = Buscar(dato, nodoBusqueda.Hijo);
+            if (nodoBusqueda.HijoIzquierdo != null) {
+                NodoBinario nodoEncontrado = Buscar(dato, nodoBusqueda.Hijo);
 
                 if (nodoEncontrado != null) {
                     return nodoEncontrado;
                 }
             }
 
-            if (nodoBusqueda.Hermano != null) {
-                Nodo nodoEncontrado = Buscar(dato, nodoBusqueda.Hermano);
+            if (nodoBusqueda.HijoDerecho != null) {
+                NodoBinario nodoEncontrado = Buscar(dato, nodoBusqueda.HijoDerecho);
 
                 if (nodoEncontrado != null) {
                     return nodoEncontrado;
