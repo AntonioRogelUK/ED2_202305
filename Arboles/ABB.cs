@@ -29,7 +29,7 @@ namespace Arboles
                 {
                     throw new Exception("El valor ya existe en el arbol");
                 }
-                if (nodoABB.Dato > dato)
+                if (nodoABB.Dato < dato)
                 {
                     if (nodoABB.Der != null)
                         nodoABB = nodoABB.Der;
