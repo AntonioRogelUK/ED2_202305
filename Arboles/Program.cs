@@ -12,6 +12,7 @@ namespace Arboles
         {
             ArbolGeneral arbolGeneral = new ArbolGeneral("A");
 
+            Console.WriteLine("\nArbol General");
             Nodo nodoB = arbolGeneral.InsertarNodo("B",arbolGeneral.Raiz);
             Nodo nodoD = arbolGeneral.InsertarNodo("D", nodoB);
             Nodo nodoI = arbolGeneral.InsertarNodo("I", nodoD);
@@ -23,21 +24,32 @@ namespace Arboles
             Nodo nodoG = arbolGeneral.InsertarNodo("G", nodoC);
             Nodo nodoH = arbolGeneral.InsertarNodo("H", nodoC);
             Nodo nodoL = arbolGeneral.InsertarNodo("L", nodoH);
+            ImprimirRenglones(arbolGeneral.ObtenerArbol());
 
+            Console.WriteLine("\nArbol Binario de Busqueda");
+            ABB abb = new ABB(200);
+            abb.Insertar(100);
+            abb.Insertar(50);
+            abb.Insertar(25);
+            abb.Insertar(75);
+            abb.Insertar(300);
+            abb.Insertar(250);
 
-            string arbol = arbolGeneral.ObtenerArbol();
-            string[] renglones = arbol.Split('\n');
+            ImprimirRenglones(abb.ObtenerArbol());
+         
+            Console.ReadLine();
+        }
+
+        static void ImprimirRenglones(string recorrido)
+        {
+            string[] renglones = recorrido.Split('\n');
             foreach (string renglon in renglones)
             {
-                int cuentaGuiones = renglon.Count(c => c.ToString()=="-")+2;
-                Console.ForegroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor),cuentaGuiones.ToString());
+                int cuentaGuiones = renglon.Count(c => c.ToString() == "-") + 2;
+                Console.ForegroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), cuentaGuiones.ToString());
                 Console.WriteLine(renglon);
                 Console.ResetColor();
             }
-            
-
-
-            Console.ReadLine();
         }
     }
 }
