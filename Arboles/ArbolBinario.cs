@@ -15,7 +15,7 @@ namespace Arboles {
         }
 
         public NodoBinario InsertarNodo(int dato) {
-            if (dato == null) {
+            if (dato == 0) {
                 throw new Exception("No se a especificado dato");
             }
 
@@ -41,7 +41,7 @@ namespace Arboles {
                 nodoAnterior.HijoDerecho = new NodoBinario(dato);
                 return nodoAnterior.HijoDerecho;
             }
-            else if (dato < nodoActual.Dato)
+            else if (dato < nodoAnterior.Dato)
             {
                 nodoAnterior.HijoIzquierdo = new NodoBinario(dato);
                 return nodoAnterior.HijoIzquierdo;
@@ -52,7 +52,7 @@ namespace Arboles {
 
         public string ObtenerArbol(NodoBinario nodoInicial = null) {
             if (nodoInicial == null) {
-                nodoInicial = raiz;
+                nodoInicial = Raiz;
             }
 
             int posicion = 0;
@@ -77,38 +77,13 @@ namespace Arboles {
                     posicion--;
                 }
 
-                if (nodoInicial.HijoDerecho != null && posicion != 0)
+                if (nodoInicial.HijoDerecho != null)
                 {
+                    posicion++;
                     RecorrerArbol(nodoInicial.HijoDerecho, ref posicion, ref datos);
+                    posicion--;
                 }
             }
-        }
-
-        public NodoBinario Buscar(string dato, NodoBinario nodoBusqueda = null) {
-            if (nodoBusqueda == null) {
-                nodoBusqueda = raiz;
-            }
-
-            if (nodoBusqueda.Dato.ToString().ToUpper() == dato.ToUpper()) {
-                return nodoBusqueda;
-            }
-
-            if (nodoBusqueda.HijoIzquierdo != null) {
-                NodoBinario nodoEncontrado = Buscar(dato, nodoBusqueda.Hijo);
-
-                if (nodoEncontrado != null) {
-                    return nodoEncontrado;
-                }
-            }
-
-            if (nodoBusqueda.HijoDerecho != null) {
-                NodoBinario nodoEncontrado = Buscar(dato, nodoBusqueda.HijoDerecho);
-
-                if (nodoEncontrado != null) {
-                    return nodoEncontrado;
-                }
-            }
-            return null;
         }
     }
 }
