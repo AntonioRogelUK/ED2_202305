@@ -14,25 +14,27 @@ namespace Arboles {
             raiz = new NodoBinario(dato);
         }
 
-        public NodoBinario InsertarNodo(int dato) {
-            if (dato == 0) {
+        public NodoBinario InsertarNodo(int dato)
+        {
+            if (dato == 0)
+            {
                 throw new Exception("No se a especificado dato");
             }
 
             NodoBinario nodoActual = Raiz;
             NodoBinario nodoAnterior = Raiz;
 
-            while (nodoActual != null) {
-                if (dato > nodoActual.Dato) {
+            while (nodoActual != null)
+            {
+                if (dato > nodoActual.Dato)
+                {
                     nodoAnterior = nodoActual;
                     nodoActual = nodoActual.HijoDerecho;
-                } else if (dato < nodoActual.Dato)
+                }
+                else if (dato < nodoActual.Dato)
                 {
                     nodoAnterior = nodoActual;
                     nodoActual = nodoActual.HijoIzquierdo;
-                } else if (dato == nodoActual.Dato)
-                {
-                    throw new Exception("El dato ingresado ya se encuentra en el árbol");
                 }
             }
 
@@ -47,7 +49,7 @@ namespace Arboles {
                 return nodoAnterior.HijoIzquierdo;
             }
 
-            throw new Exception("No se encontró un lugar donde insertar el nodo.");
+            return nodoActual;
         }
 
         public string ObtenerArbol(NodoBinario nodoInicial = null) {
