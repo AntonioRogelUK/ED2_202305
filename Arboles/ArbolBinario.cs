@@ -8,43 +8,43 @@ namespace Arboles
 {
     internal class ArbolBinario
     {
-        private readonly NodoBinario raiz;
-        public NodoBinario Raiz { get { return raiz; } }
+        private readonly NodoB raiz;
+        public NodoB Raiz { get { return raiz; } }
 
-        public ArbolBinario(int numero)
+        public ArbolBinario(int num)
         {
-            raiz = new NodoBinario(numero);
+            raiz = new NodoB(num);
         }
 
-        public void InsertarNodoB(int numero, NodoBinario aux)
+        public void InsertarNodo(int num, NodoB aux)
         {
-            if (numero == aux.Numero) return;
+            if (num == aux.Num) return;
 
-            if (numero < aux.Numero)
+            if (num < aux.Num)
             {
                 if (aux.Izq == null)
                 {
-                    aux.Izq = new NodoBinario(numero);
+                    aux.Izq = new NodoB(num);
                 }else
                 {
-                    InsertarNodoB(numero, aux.Izq);
+                    InsertarNodo(num, aux.Izq);
                 }
             }
 
-            if (numero > aux.Numero)
+            if (num > aux.Num)
             {
                 if (aux.Der == null)
                 {
-                    aux.Der = new NodoBinario(numero);
+                    aux.Der = new NodoB(num);
                 }
                 else
                 {
-                    InsertarNodoB(numero, aux.Der);
+                    InsertarNodo(num, aux.Der);
                 }
             }  
         }
 
-        public string ObtenerArbol(NodoBinario nodoInicial = null)
+        public string ObtenerArbol(NodoB nodoInicial = null)
         {
             if (nodoInicial == null)
             {
@@ -58,11 +58,11 @@ namespace Arboles
             return datos;
         }
 
-        private void Recorrer(NodoBinario nodoInicial, ref int posicion, ref string datos)
+        private void Recorrer(NodoB nodoInicial, ref int posicion, ref string datos)
         {
             if (nodoInicial != null)
             {
-                string dato = nodoInicial.Numero.ToString();
+                string dato = nodoInicial.Num.ToString();
                 int cantidadGuiones = dato.Length + posicion;
                 datos += $"{dato.PadLeft(cantidadGuiones, '-')}\n";
 

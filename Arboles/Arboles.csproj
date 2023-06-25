@@ -46,9 +46,8 @@
     <Compile Include="ArbolBinario.cs" />
     <Compile Include="ArbolGeneral.cs" />
     <Compile Include="Nodo.cs" />
-    <Compile Include="NodoBinario.cs" />
+    <Compile Include="NodoB.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ProgramB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
