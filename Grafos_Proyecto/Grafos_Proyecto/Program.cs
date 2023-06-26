@@ -10,6 +10,7 @@ namespace Grafos_Proyecto
     {
         static void Main(string[] args)
         {
+            Grafo grafo = new Grafo();
         }
     }
 }

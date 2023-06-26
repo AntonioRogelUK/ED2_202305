@@ -8,5 +8,22 @@ namespace Grafos_Proyecto
 {
     internal class Lista
     {
+        class Grafo
+        {
+            private List<Nodo> nodos;
+
+            public Grafo()
+            {
+                nodos = new List<Nodo>();
+            }
+
+            public void AgregarNodo(int dato)
+            {
+                Nodo nuevoNodo = new Nodo(dato);
+                nodos.Add(nuevoNodo);
+            }
+
+
+        }
     }
 }
