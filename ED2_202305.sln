@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arboles", "Arboles\Arboles.csproj", "{503187DA-ADB0-40E0-9D22-8BC4BE230C85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArbolBinario", "ArbolBinario\ArbolBinario.csproj", "{34C0B9B4-7193-4613-B5A1-0B5E49E81CEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{503187DA-ADB0-40E0-9D22-8BC4BE230C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{503187DA-ADB0-40E0-9D22-8BC4BE230C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{503187DA-ADB0-40E0-9D22-8BC4BE230C85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34C0B9B4-7193-4613-B5A1-0B5E49E81CEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34C0B9B4-7193-4613-B5A1-0B5E49E81CEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34C0B9B4-7193-4613-B5A1-0B5E49E81CEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34C0B9B4-7193-4613-B5A1-0B5E49E81CEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
