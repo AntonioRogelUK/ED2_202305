@@ -16,26 +16,30 @@ namespace ArbolBinario
             raiz = new Nodo(dato);
         }
 
-        // Lo converti en void ya que al no tener el metodo de eliminar no ocupamos recibir un nodo, ya que solo queremos el recorrido.
         public void InsertarNodo(int dato) 
         {
             Nodo nodoActual = raiz;
             Nodo nodoAnterior = raiz;
 
-            while (nodoActual != null)
+            while (nodoActual != null) // Mientras que el nodo en el que estemos no sea null que se mueva por el arbol para encontrar el lugar donde insertarlo
             {
-                if (dato > nodoActual.Dato)
+                if(dato == nodoActual.Dato) // Si el dato es igual algun dato que ya existe, entonces que se salga
                 {
+                    return;
+                }
+                else if (dato > nodoActual.Dato)    // Si el dato es mayor al nodoActual entonces guardamos el nodoActual en nodo Anterior para saber 
+                {                                   // donde hacer cambios y se mueva al hijo derecho.
                     nodoAnterior = nodoActual;
                     nodoActual = nodoActual.Hderecho;
                 }
-                else if(dato < nodoActual.Dato) 
-                {
+                else if(dato < nodoActual.Dato) // Si el dato es menor al nodoActual entonces guardamos el nodoActual en nodo Anterior para saber 
+                {                                   // donde hacer cambios y  se mueva al hijo izquierdo.
                     nodoAnterior = nodoActual;
                     nodoActual = nodoActual.Hizquierdo;
                 }
             }
 
+            // Se inserta en el hijo correspondiente
             if (dato > nodoAnterior.Dato)
             {
                 nodoAnterior.Hderecho = new Nodo(dato);
@@ -46,6 +50,7 @@ namespace ArbolBinario
             }
         }
 
+        // Obtenemos todos los recorridos usando recursividad
         public string ObtenerArbol(Nodo nodoInicial = null)
         {
             if (nodoInicial == null)

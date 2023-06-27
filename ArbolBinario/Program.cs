@@ -22,6 +22,7 @@ namespace ArbolBinario
             arbolBB.InsertarNodo(52);
             arbolBB.InsertarNodo(96);
             arbolBB.InsertarNodo(7);
+            arbolBB.InsertarNodo(23); // Nodo repetido
             arbolBB.InsertarNodo(48);
 
 
