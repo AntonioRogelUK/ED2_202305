@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metodo_de_Ordenamiento
 {
-    internal class Program
+    internal class Nodo
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }
