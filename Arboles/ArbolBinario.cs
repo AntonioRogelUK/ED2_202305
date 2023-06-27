@@ -60,14 +60,14 @@ namespace Arboles
                 {
                     posicion++;
                     RecorrerBi(nodoInicial.Izquierda, ref posicion, ref datos);
-                    posicion--;
+                    
                 }
 
                 if (nodoInicial.Derecha != null)
                 {
                     posicion++;
                     RecorrerBi(nodoInicial.Derecha, ref posicion, ref datos);
-                    posicion--;
+                    
                 }
             }
         }
